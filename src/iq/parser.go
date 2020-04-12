@@ -14,7 +14,8 @@ const (
 	mustBeGreaterThan0 = "must be strictly greater than 0.\n"
 	mustBePositive = "must be positive.\n"
 	mustBeBetween = "must be an integer between 0 and 200.\n"
-	smallerThanIq1 = "is smaller than IQ1."
+	smallerThanIq1 = "is smaller than IQ1.\n"
+	tooLarge = "is too large.\n"
 )
 
 // U - mean
@@ -81,8 +82,11 @@ func CheckArgs() bool {
 			return false
 		}
 
-		// Assign u
+		// Check and assign u
 		if valueNames[i] == "u" {
+			if (integer > 200) {
+				printError(valueNames[i], tooLarge)
+			}
 			U = integer
 		}
 
