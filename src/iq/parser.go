@@ -14,6 +14,7 @@ const (
 	mustBeGreaterThan0 = "must be strictly greater than 0.\n"
 	mustBePositive = "must be positive.\n"
 	mustBeBetween = "must be an integer between 0 and 200.\n"
+	smallerThanIq1 = "is smaller than IQ1."
 )
 
 // U - mean
@@ -105,6 +106,10 @@ func CheckArgs() bool {
 			IQ1 = integer
 		}
 		if valueNames[i] == "IQ2" {
+			if integer < IQ1 {
+				printError(valueNames[i], smallerThanIq1)
+				return false
+			}
 			IQ2 = integer
 		}
 	}
