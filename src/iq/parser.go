@@ -86,6 +86,7 @@ func CheckArgs() bool {
 		if valueNames[i] == "u" {
 			if (integer > 200) {
 				printError(valueNames[i], tooLarge)
+				return false
 			}
 			U = integer
 		}
